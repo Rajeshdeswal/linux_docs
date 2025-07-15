@@ -1,1 +1,4 @@
-
+To get detail of all Dl in zimbra.
+Su - zimbra
+touch /tmp/all_dl_details.txt
+for i in $(zmprov gadl); do   echo "=== $i ===";   zmprov gdl "$i";   echo ""; done > /tmp/all_dl_details.txt
