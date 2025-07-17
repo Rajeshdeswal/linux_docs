@@ -4,3 +4,5 @@ touch /tmp/all_dl_details.txt
 for i in $(zmprov gadl); do   echo "=== $i ===";   zmprov gdl "$i";   echo ""; done > /tmp/all_dl_details.txt
 # Better output
 for dl in $(zmprov gadl); do   echo "$dl";   zmprov gdl "$dl" | awk -F': ' '/zimbraMailForwardingAddress:/ {print "  - " $2}'; done > /tmp/DL_details.txt
+
+for i in $(cat m365.txt); do fwd=$(zmprov ga $i zimbraMailForwardingAddress| grep zimbraMailForwardingAddress | cut -d":" -f2); echo "$i Forwarded to - $fwd" >> /tmp/forwading_m365id.txt; done;
